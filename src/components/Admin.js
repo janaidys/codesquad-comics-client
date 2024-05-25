@@ -1,4 +1,5 @@
 import React from 'react';
+import booksData from "../data/books";
 
 const Admin = () => {
     return (
@@ -16,66 +17,15 @@ const Admin = () => {
     </thead>
 
 <tbody>
+
+{booksData.map((book) =>
 <tr>
-    <td>Batman: The Dark Knight Returns</td>
+    <td>{book.title}</td>
     <td><button className="edit-button" type="submit">EDIT</button></td>
     <td><button className="delete-button" type="submit">DELETE</button></td>
 </tr>
-<tr>
-    <td>Black Panther: A Nation Under Our Feet Book 1 </td>
-    <td><button className="edit-button" type="submit">EDIT</button></td>
-    <td><button className="delete-button" type="submit">DELETE</button></td>
-</tr>
-<tr>
-    <td>Fun Home: A Family Tragicomic</td>
-    <td><button className="edit-button" type="submit">EDIT</button></td>
-    <td><button className="delete-button" type="submit">DELETE</button></td>
-</tr>
-<tr>
-    <td>Hunter X Hunter Vol. 1</td>
-    <td><button className="edit-button" type="submit">EDIT</button></td>
-    <td><button className="delete-button" type="submit">DELETE</button></td>
-</tr>
-<tr>
-    <td>Lumberjanes Vol. 1</td>
-    <td><button className="edit-button" type="submit">EDIT</button></td>
-    <td><button className="delete-button" type="submit">DELETE</button></td>
-</tr>
-<tr>
-    <td>March: Book One</td>
-    <td><button className="edit-button" type="submit">EDIT</button></td>
-    <td><button className="delete-button" type="submit">DELETE</button></td>
-</tr>
-<tr>
-    <td>One Piece, Vol. 1: Romance Dawn</td>
-    <td><button className="edit-button" type="submit">EDIT</button></td>
-    <td><button className="delete-button" type="submit">DELETE</button></td>
-</tr>
-<tr>
-    <td>Parable of the Sower</td>
-    <td><button className="edit-button" type="submit">EDIT</button></td>
-    <td><button className="delete-button" type="submit">DELETE</button></td>
-</tr>
-<tr>
-    <td>Queer: A Graphic History</td>
-    <td><button className="edit-button" type="submit">EDIT</button></td>
-    <td><button className="delete-button" type="submit">DELETE</button></td>
-</tr>
-<tr>
-    <td>The Walking Dead, Vol. 1: Days Gone Bye</td>
-    <td><button className="edit-button" type="submit">EDIT</button></td>
-    <td><button className="delete-button" type="submit">DELETE</button></td>
-</tr>
-<tr>
-    <td>Wake: The Hidden History of Women-Led Slave Revolts</td>
-    <td><button className="edit-button" type="submit">EDIT</button></td>
-    <td><button className="delete-button" type="submit">DELETE</button></td>
-</tr>
-<tr>
-    <td>Watchmen</td>
-    <td><button className="edit-button" type="submit">EDIT</button></td>
-    <td><button className="delete-button" type="submit">DELETE</button></td>
-</tr>
+)}
+
 </tbody>
 </table>
       </div>
