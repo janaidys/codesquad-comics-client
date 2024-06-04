@@ -1,6 +1,12 @@
 import React from 'react';
 
 const Create = () => {
+
+const handleCreateSubmit = (event) => {
+    event.preventDefult();
+    console.log("This method ran...")
+}
+
     return (
       <div className="Create">
         <h1>CREATE NEW COMIC</h1>

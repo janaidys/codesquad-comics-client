@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useState, useEffect} from "react";
 import booksData from "../data/books";
 
 
 
 const Home = () => {
+
+const [books, setBooks] = useState([])
+useEffect(() => {
+  [books, setBooks] = booksData}, []
+);
+
     return (
       <div className="Home">
         <h1>CODESQUAD COMICS</h1>

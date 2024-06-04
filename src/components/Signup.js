@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Login = ({user, setUser}) => {
+const Signup = ({user, setUser}) => {
     return (
-      <div className="Login">
-        <h1>LOGIN</h1>
+      <div className="Signup">
+        <h1>SIGNUP</h1>
 
-<form className="login-form" action="#">
+{/* <form className="login-form" action="#">
     <div>
         <label htmlFor="email">Email address:</label>
         <input type="text" name="email" id="email"placeholder="Email"/>
@@ -17,11 +17,11 @@ const Login = ({user, setUser}) => {
 
         <button className="submit-button" type="submit">Submit</button>
     </div>
-</form>
+</form> */}
 
 
       </div>
     )
   }
 
-export default Login;
+export default Signup;
