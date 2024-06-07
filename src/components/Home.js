@@ -27,7 +27,7 @@ const Home = () => {
         <h2>COMPLETE COMIC COLLECTION</h2>
         <span className="comic-covers">
           {books.map((book) => (
-            <div key={book.id} className="individual-comics">
+            <div key={book._id} className="individual-comics">
               <a href="#">
                 <img
                   src={`./images/${book.image}`}
