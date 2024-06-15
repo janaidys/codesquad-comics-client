@@ -4,8 +4,23 @@ import booksData from "../data/books";
 const Home = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    setBooks(booksData);
+    fetch(`https://codesquad-comics-rzef.onrender.com/api/comics`)
+    // , {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-type": "application/json",
+    //   },
+      .then((response) => response.json())
+      .then((result)=>{
+        if (result.statusCode === 200) {
+          setBooks(result.data)
+        }
+      })
+      .catch((error) => console.log(error));
   }, []);
+  useEffect(() => {
+    console.log(books)
+  }, [books])
 
   return (
     <div className="Home">
@@ -30,8 +45,8 @@ const Home = () => {
             <div key={book._id} className="individual-comics">
               <a href="#">
                 <img
-                  src={`./images/${book.image}`}
-                  alt="fun home cover"
+                  src={`/images/${book.image}`}
+                  alt={`${book.title}`}
                   width="200px"
                 />
               </a>
