@@ -1,14 +1,28 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Signup = ({user, setUser}) => {
+  const navigate = useNavigate();
 
 const handleSignupSumbit = (event) => {
   event.preventDefault();
   console.log("This method ran...")
-  console.log(event.firstName.value)
-  console.log(event.lastName.value)
-  console.log(event.email.value)
-  console.log(event.password.value)
+  const body = {
+    firstName: event.target.firstName.value,
+    lastName: event.target.lastName.value,
+    email:event.target.email.value,
+    password: event.target.password.value
+  }
+
+  fetch(`https://codesquad-comics-rzef.onrender.com/api/comics/signup`, {
+    method: "POST",
+    body: JSON.stringify
+  })
+    .then((response) => response.json())
+    .then((result) => console.log(result), navigate("/admin"))
+    .catch((error)=> console.log(error))
+
+  
 }
     return (
       <div className="Signup">

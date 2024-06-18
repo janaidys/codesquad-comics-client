@@ -1,14 +1,24 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom"
 
 const Login = ({user, setUser}) => {
+  const navigate = useNavigate();
 
 const handleLoginSubmit = (event) => {
   event.preventDefault();
   console.log("This method ran...")
-  console.log(event.email.value)
-  console.log(event.password.value)
-  console.log(event.email.value)
+  const body = {
+    email:event.target.email.value,
+    password: event.target.password.value
+  }
 }
+fetch(`https://codesquad-comics-rzef.onrender.com/api/comics/login/local`, {
+      method: "POST",
+      body: JSON.stringify
+    })
+      .then((response) => response.json())
+      .then((result) => console.log(result), navigate("/admin"))
+      .catch((error)=> console.log(error))
 
 
     return (

@@ -1,27 +1,43 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import booksData from "../data/books";
-const id = "66b62a49-a8de-4914-ab3f-49fe0554c08a";
 
-const Update = () => {
-    const [book, setBook] = useState({});
+
+const Update = (bookID) => {
+    const navigate = useNavigate();
+
+    const { bookId } = useParams();
+    const [book, setBook] = useState([]);
     useEffect(() => {
-        const firstBook = booksData.find((book)=> (
-         book.id === id
-        ))
-        setBook(firstBook);
+        fetch(`https://codesquad-comics-rzef.onrender.com/api/comics/${bookID}`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((result) => setBook(result.data))
+      .catch((error)=> console.log(error))
     }, []);
 
     const handleUpdateSubmit = (event) => {
         event.preventDefault();
         console.log("This method ran...")
-        console.log(event.title.value)
-        console.log(event.author.value)
-        console.log(event.publisher.value)
-        console.log(event.genre.value)
-        console.log(event.pages.value)
-        console.log(event.rating.value)
-        console.log(event.synopsis.value)
+        const body = {
+            title: event.target.title.value,
+            author: event.target.author.value, 
+            publish: event.target.publish.value, 
+            genre: event.target.genre.value, 
+            pages: event.target.pages.value, 
+            rating: event.target.pages.value, 
+            synopsis: event.target.pages.value
+          }
+          fetch(`https://codesquad-comics-rzef.onrender.com/api/comics/update/${bookID}`, {
+            method: "PUT",
+            body: JSON.stringify
+          })
+            .then((response) => response.json())
+            .then((result) => console.log(result), navigate("/admin"))
+            .catch((error)=> console.log(error))
     }
+
 
     return (
       <div className="Update">
