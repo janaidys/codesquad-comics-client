@@ -1,19 +1,30 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
+    const navigate = useNavigate();
 
 const handleCreateSubmit = (event) => {
     event.preventDefault();
     console.log("This method ran...")
-    console.log(event.title.value)
-    console.log(event.author.value)
-    console.log(event.publisher.value)
-    console.log(event.genre.value)
-    console.log(event.pages.value)
-    console.log(event.rating.value)
-    console.log(event.synopsis.value)
-
+    const body = {
+        title: event.target.title.value,
+        author: event.target.author.value,
+        publisher: event.target.publisher.value,
+        genre: event.target.genre.value,
+        pages: event.target.pages.value,
+        rating: event.target.rating.value,
+        synopsis: event.target.synopsis.value
+    }
 }
+
+fetch(`https://codesquad-comics-rzef.onrender.com/api/comics/create`, {
+      method: "POST",
+      body: JSON.stringify
+    })
+      .then((response) => response.json())
+      .then((result) => console.log(result), navigate("/admin"))
+      .catch((error)=> console.log(error))
 
     return (
       <div className="Create">

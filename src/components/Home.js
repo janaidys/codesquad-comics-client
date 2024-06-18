@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
-import booksData from "../data/books";
+// import booksData from "../data/books";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    fetch(`https://codesquad-comics-rzef.onrender.com/api/comics`)
-    // , {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
+    fetch(`https://codesquad-comics-rzef.onrender.com/api/comics`
+    , {
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((result)=>{
         if (result.statusCode === 200) {
