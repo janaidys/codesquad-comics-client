@@ -23,7 +23,7 @@ fetch(`https://codesquad-comics-rzef.onrender.com/api/comics/create`, {
       body: JSON.stringify
     })
       .then((response) => response.json())
-      .then((result) => console.log(result), navigate("/admin"))
+      .then((result) => navigate("/admin"))
       .catch((error)=> console.log(error))
 
     return (
